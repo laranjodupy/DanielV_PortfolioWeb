@@ -1,0 +1,317 @@
+body {
+background-color: white; /* Ensure the iframe has a white background */
+}
+
+                /* =====================================================
+   VARIÁVEIS GLOBAIS
+   Tema Retrô Python - Dark Mode
+===================================================== */
+:root {
+  /* Fundo Escuro (Estilo Terminal) */
+  --cor-fundo:        #1a1a1a;
+  --cor-fundo-suave:  #222222; /* Para cards */
+  
+  /* Texto e Contraste */
+  --cor-texto:        #e6e6e6; /* Cinza bem claro, quase branco */
+  --cor-texto-sec:    #9ca3af; /* Cinza médio para metadados */
+  
+  /* Cores Oficiais Python (Blue & Yellow) */
+  --python-azul:      #306998;
+  --python-amarelo:   #FFD43B;
+  --cor-destaque:     var(--python-amarelo); /* Acento principal */
+
+  /* Bordas */
+  --cor-borda:        #3a3a3a;
+
+  /* Fontes */
+  --fonte-titulo:     'Silkscreen', monospace;
+  --fonte-corpo:      'Space Mono', monospace;
+
+  /* Layout */
+  --largura-max:      800px; /* Aumentei um pouco para melhor leitura */
+  --espacamento:      2.5rem;
+}
+
+/* =====================================================
+   RESET BÁSICO
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   CORPO DA PÁGINA
+===================================================== */
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: 15px; /* Um pouco menor para fontes monoespaçadas */
+  line-height: 1.7;
+  overflow-x: hidden; /* Evita scroll horizontal acidental */
+}
+
+/* Container central */
+.container {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1; /* Garante que o conteúdo fique acima do canvas */
+}
+
+/* Linha divisória */
+.divisor {
+  border: none;
+  border-top: 1px dashed var(--cor-borda); /* Dashed para estilo tech/retrô */
+  margin: var(--espacamento) 0;
+}
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+header {
+  padding: 4rem 0 2rem;
+}
+
+/* Prompt de comando simulado */
+.header-top {
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--python-azul);
+  letter-spacing: 0.1em;
+}
+
+.nome {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+  color: #ffffff; /* Branco puro para máximo destaque no fundo escuro */
+}
+
+.cargo {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--cor-texto-sec);
+  letter-spacing: 0.02em;
+}
+
+.cargo em {
+  font-style: normal; /* Space Mono já tem um visual técnico */
+  font-weight: 700;
+  color: var(--cor-destaque);
+}
+
+/* =====================================================
+   TÍTULOS DE SEÇÃO
+===================================================== */
+.secao-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem; /* Tamanho ajustado para pixel fonts não ficarem gigantes */
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: var(--cor-texto);
+}
+
+/* =====================================================
+   SEÇÃO: SOBRE MIM
+===================================================== */
+.sobre p {
+  color: var(--cor-texto-sec);
+  font-size: 0.95rem;
+  max-width: 65ch; /* Otimizado para leitura */
+}
+
+/* =====================================================
+   SEÇÃO: HABILIDADES
+===================================================== */
+.habilidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Responsivo automático */
+  gap: 1rem;
+}
+
+.card-habilidade {
+  background-color: var(--cor-fundo-suave);
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px; /* Menos arredondado = mais retrô */
+  padding: 1.25rem 1rem;
+
+  transition: all 0.2s ease;
+}
+
+.card-habilidade:hover {
+  transform: translateY(-3px);
+  border-color: var(--python-azul);
+  box-shadow: 4px 4px 0px var(--cor-borda); /* Sombra sólida estilo 8-bit */
+}
+
+/* Highlight para o card Python */
+#python_card {
+  border-color: var(--python-amarelo);
+  background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(48, 105, 152, 0.1) 100%);
+}
+
+.card-habilidade .icone {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  filter: grayscale(20%);
+}
+
+.card-habilidade h3 {
+  font-family: var(--fonte-titulo); /* Títulos dos cards também em pixel */
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+  color: var(--cor-texto);
+}
+
+.card-habilidade p {
+  font-size: 0.8rem;
+  color: var(--cor-texto-sec);
+  line-height: 1.4;
+}
+
+/* =====================================================
+   SEÇÃO: EXPERIÊNCIAS
+===================================================== */
+.experiencias-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.experiencia-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0 1.5rem;
+}
+
+.exp-data {
+  font-size: 0.8rem;
+  color: var(--python-azul);
+  padding-top: 4px;
+  text-align: right;
+  font-family: var(--fonte-titulo);
+}
+
+.exp-conteudo {
+  border-left: 2px solid var(--cor-borda);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+/* Bolinha da timeline */
+.exp-conteudo::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--cor-fundo);
+  border: 2px solid var(--cor-destaque);
+  border-radius: 50%;
+}
+
+.exp-cargo {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 0.2rem;
+}
+
+.exp-empresa {
+  font-size: 0.85rem;
+  color: var(--cor-texto-sec);
+  margin-bottom: 0.5rem;
+  display: block;
+  font-style: italic;
+}
+
+.exp-descricao {
+  font-size: 0.9rem;
+  color: var(--cor-texto-sec);
+  line-height: 1.6;
+}
+
+/* =====================================================
+   SEÇÃO: CONTATO
+===================================================== */
+.contato-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contato-lista li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.contato-lista .rotulo {
+  font-size: 0.8rem;
+  color: var(--python-azul);
+  width: 70px;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-family: var(--fonte-titulo);
+  text-align: right;
+}
+
+.contato-lista a {
+  color: var(--cor-texto);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--cor-borda);
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+}
+
+.contato-lista a:hover {
+  color: var(--cor-destaque);
+  border-bottom-color: var(--cor-destaque);
+  padding-left: 4px; /* Efeito de deslocamento no hover */
+}
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+footer {
+  padding: 3rem 0;
+  font-size: 0.75rem;
+  color: var(--cor-texto-sec);
+  text-align: center;
+}
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+@media (max-width: 600px) {
+  .habilidades-grid {
+    grid-template-columns: 1fr; /* 1 coluna no mobile */
+  }
+  
+  .experiencia-item {
+    grid-template-columns: 1fr;
+  }
+  
+  .exp-data {
+    text-align: left;
+    margin-bottom: 0.25rem;
+  }
+
+  .contato-lista .rotulo {
+    width: auto; /* Rótulos ajustáveis no mobile */
+    text-align: left;
+  }
+}
+

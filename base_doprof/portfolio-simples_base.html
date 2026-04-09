@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio — Seu Nome</title>
+
+  <!--
+  =====================================================
+    FONTE EXTERNA (Google Fonts)
+    Estamos importando duas fontes:
+    - "DM Serif Display": usada nos títulos grandes
+    - "DM Sans": usada nos textos do corpo
+    Você pode trocar por outras em fonts.google.com
+  =====================================================
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* =====================================================
+       VARIÁVEIS GLOBAIS
+       Aqui ficam as cores e fontes do site inteiro.
+       Mude um valor aqui e ele muda em todo o site!
+    ===================================================== */
+    :root {
+      --cor-fundo:        #faf9f7;   /* fundo da página */
+      --cor-texto:        #1a1a1a;   /* texto principal  */
+      --cor-suave:        #6b6b6b;   /* texto secundário */
+      --cor-destaque:     #c45c2e;   /* cor de acento (laranja queimado) */
+      --cor-borda:        #e2e0dc;   /* bordas e linhas  */
+      --cor-card:         #ffffff;   /* fundo dos cards  */
+
+      --fonte-titulo:     'DM Serif Display', Georgia, serif;
+      --fonte-corpo:      'DM Sans', system-ui, sans-serif;
+
+      --largura-max:      680px;     /* largura máxima do conteúdo */
+      --espacamento:      2rem;      /* espaçamento padrão entre seções */
+    }
+
+    /* =====================================================
+       RESET BÁSICO
+       Remove margens e paddings que o navegador coloca
+       por padrão, para termos controle total do layout.
+    ===================================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; /* faz width incluir padding e border */
+    }
+
+    /* =====================================================
+       ESTILOS GERAIS DA PÁGINA
+    ===================================================== */
+    body {
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      font-family: var(--fonte-corpo);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* Container central — limita a largura e centraliza */
+    .container {
+      max-width: var(--largura-max);
+      margin: 0 auto;          /* centraliza horizontalmente */
+      padding: 0 1.5rem;       /* espaço nas laterais em telas menores */
+    }
+
+    /* Linha divisória entre seções */
+    .divisor {
+      border: none;
+      border-top: 1px solid var(--cor-borda);
+      margin: var(--espacamento) 0;
+    }
+
+    /* =====================================================
+       CABEÇALHO — Nome e cargo
+       Primeira coisa que o visitante vê.
+    ===================================================== */
+    header {
+      padding: 4rem 0 var(--espacamento);
+    }
+
+    /* Linha colorida decorativa antes do nome */
+    header::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background-color: var(--cor-destaque);
+      margin-bottom: 1.5rem;
+    }
+
+    .nome {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(2.2rem, 6vw, 3.2rem); /* tamanho responsivo */
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .cargo {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--cor-suave);
+      letter-spacing: 0.03em;
+    }
+
+    /* Destaque dentro do cargo (texto em itálico + cor) */
+    .cargo em {
+      font-style: italic;
+      font-family: var(--fonte-titulo);
+      font-size: 1rem;
+      color: var(--cor-destaque);
+    }
+
+    /* =====================================================
+       TÍTULOS DE SEÇÃO
+       Padrão reutilizável para todos os títulos de bloco.
+    ===================================================== */
+    .secao-titulo {
+      font-family: var(--fonte-titulo);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+      color: var(--cor-texto);
+    }
+
+    /* =====================================================
+       SEÇÃO: SOBRE MIM
+    ===================================================== */
+    .sobre p {
+      color: var(--cor-suave);
+      font-size: 1rem;
+      max-width: 58ch; /* ~58 caracteres de largura — ótimo para leitura */
+    }
+
+    /* =====================================================
+       SEÇÃO: HABILIDADES
+       Três cards lado a lado com efeito :hover.
+    ===================================================== */
+    .habilidades-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+      gap: 1rem;
+    }
+
+    /* Card individual de habilidade */
+    .card-habilidade {
+      background-color: var(--cor-card);
+      border: 1px solid var(--cor-borda);
+      border-radius: 8px;
+      padding: 1.5rem 1.25rem;
+
+      /* Transição suave para o efeito :hover */
+      transition: transform 0.2s ease,
+                  box-shadow 0.2s ease,
+                  border-color 0.2s ease;
+    }
+
+    /* EFEITO :hover — o card sobe e ganha sombra ao passar o mouse */
+    .card-habilidade:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-color: var(--cor-destaque);
+    }
+
+    /* Ícone/emoji da habilidade */
+    .card-habilidade .icone {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Título dentro do card */
+    .card-habilidade h3 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: var(--cor-texto);
+    }
+
+    /* Descrição dentro do card */
+    .card-habilidade p {
+      font-size: 0.82rem;
+      color: var(--cor-suave);
+      line-height: 1.5;
+    }
+
+    /* =====================================================
+       SEÇÃO: EXPERIÊNCIAS
+       Lista de itens com linha do tempo simples.
+    ===================================================== */
+    .experiencias-lista {
+      list-style: none;        /* remove os pontos padrão */
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .experiencia-item {
+      display: grid;
+      grid-template-columns: 90px 1fr; /* data | conteúdo */
+      gap: 0 1.25rem;
+    }
+
+    /* Coluna da data */
+    .exp-data {
+      font-size: 0.78rem;
+      color: var(--cor-suave);
+      padding-top: 3px;        /* alinha com a primeira linha do título */
+      text-align: right;
+      letter-spacing: 0.02em;
+    }
+
+    /* Conteúdo principal da experiência */
+    .exp-conteudo {
+      border-left: 2px solid var(--cor-borda);
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    /* Bolinha na linha do tempo */
+    .exp-conteudo::before {
+      content: '';
+      position: absolute;
+      left: -5px;              /* centraliza sobre a borda */
+      top: 7px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;      /* deixa redondo */
+      background-color: var(--cor-destaque);
+      border: 2px solid var(--cor-fundo); /* cria efeito de "anel" */
+    }
+
+    .exp-cargo {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--cor-texto);
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-empresa {
+      font-size: 0.82rem;
+      color: var(--cor-destaque);
+      margin-bottom: 0.4rem;
+      font-style: italic;
+      font-family: var(--fonte-titulo);
+    }
+
+    .exp-descricao {
+      font-size: 0.88rem;
+      color: var(--cor-suave);
+      line-height: 1.6;
+    }
+
+    /* =====================================================
+       SEÇÃO: CONTATO
+       Lista simples com links.
+    ===================================================== */
+    .contato-lista {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .contato-lista li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    /* Rótulo (Email:, Instagram:, etc.) */
+    .contato-lista .rotulo {
+      font-size: 0.78rem;
+      color: var(--cor-suave);
+      width: 72px;             /* largura fixa para alinhar os links */
+      flex-shrink: 0;
+    }
+
+    /* Link de contato */
+    .contato-lista a {
+      color: var(--cor-texto);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cor-borda);
+      padding-bottom: 1px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    /* :hover no link de contato */
+    .contato-lista a:hover {
+      color: var(--cor-destaque);
+      border-bottom-color: var(--cor-destaque);
+    }
+
+    /* =====================================================
+       RODAPÉ
+    ===================================================== */
+    footer {
+      padding: var(--espacamento) 0 4rem;
+      font-size: 0.78rem;
+      color: var(--cor-suave);
+    }
+
+    /* =====================================================
+       RESPONSIVIDADE — Telas menores que 520px
+       Quando a tela é pequena, os 3 cards ficam em 1 coluna
+       e o layout de experiência vira coluna simples.
+    ===================================================== */
+    @media (max-width: 520px) {
+      /* Cards empilham em coluna única */
+      .habilidades-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Experiência vira layout de coluna única */
+      .experiencia-item {
+        grid-template-columns: 1fr;
+      }
+
+      /* Data fica acima do conteúdo */
+      .exp-data {
+        text-align: left;
+        margin-bottom: 0.25rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- =====================================================
+         CABEÇALHO — Nome e cargo
+    ===================================================== -->
+    <header>
+      <h1 class="nome">Seu Nome Completo</h1>
+      <p class="cargo">
+        <em>Estudante de Desenvolvimento Web</em> &nbsp;·&nbsp; Turma 2025
+      </p>
+      <!--
+        Exemplos de como adaptar o cargo:
+        <em>Analista de Suporte Jr.</em> · Empresa X
+        <em>Desenvolvedor Front-end Freelancer</em>
+        <em>Estudante de TI</em> · IFSE, 2025
+      -->
+    </header>
+
+    <hr class="divisor" />
+
+    <!-- =====================================================
+         SOBRE MIM
+    ===================================================== -->
+    <section class="sobre">
+      <h2 class="secao-titulo">Sobre mim</h2>
+      <p>
+        Olá! Sou apaixonado por tecnologia e estou em formação na área de desenvolvimento web.
+        Gosto de resolver problemas com código limpo e criar interfaces que as pessoas
+        realmente consigam usar com facilidade. Fora da programação, curto xadrez,
+        leitura e trilhas.
+      </p>
+      <!--
+        DICA: escreva de 3 a 5 linhas sobre você.
+        Responda: quem é você? o que te motiva? o que faz além de estudar/trabalhar?
+      -->
+    </section>
+
+    <hr class="divisor" />
+
+    <!-- =====================================================
+         HABILIDADES — 3 cards com :hover
+    ===================================================== -->
+    <section class="habilidades">
+      <h2 class="secao-titulo">Habilidades</h2>
+
+      <div class="habilidades-grid">
+
+        <!-- Card 1 -->
+        <div class="card-habilidade">
+          <span class="icone">🌐</span>
+          <h3>HTML + CSS</h3>
+          <p>Estrutura e estilo de páginas web, layouts com Flexbox e Grid.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-habilidade">
+          <span class="icone">⚙️</span>
+          <h3>JavaScript</h3>
+          <p>Lógica de programação, manipulação do DOM e interatividade.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-habilidade">
+          <span class="icone">🔧</span>
+          <h3>Git + GitHub</h3>
+          <p>Versionamento de código, repositórios e colaboração em equipe.</p>
+        </div>
+
+      </div>
+      <!--
+        DICA: troque os ícones, títulos e descrições pelas suas 3 habilidades principais.
+        Use um emoji que represente cada habilidade.
+      -->
+    </section>
+
+    <hr class="divisor" />
+
+    <!-- =====================================================
+         EXPERIÊNCIAS — trabalhos, projetos, cursos
+    ===================================================== -->
+    <section class="experiencias">
+      <h2 class="secao-titulo">Experiências</h2>
+
+      <ul class="experiencias-lista">
+
+        <!-- Experiência 1 -->
+        <li class="experiencia-item">
+          <span class="exp-data">2024 – hoje</span>
+          <div class="exp-conteudo">
+            <p class="exp-cargo">Curso de Desenvolvimento Web</p>
+            <p class="exp-empresa">Nome da Escola / Instituição</p>
+            <p class="exp-descricao">
+              Formação em HTML, CSS, JavaScript e boas práticas de desenvolvimento.
+              Desenvolvimento de projetos práticos ao longo do curso.
+            </p>
+          </div>
+        </li>
+
+        <!-- Experiência 2 -->
+        <li class="experiencia-item">
+          <span class="exp-data">2024</span>
+          <div class="exp-conteudo">
+            <p class="exp-cargo">Projeto — Landing Page Pessoal</p>
+            <p class="exp-empresa">Projeto próprio</p>
+            <p class="exp-descricao">
+              Criação de um site portfólio com HTML, CSS e JavaScript puro,
+              responsivo para dispositivos móveis.
+            </p>
+          </div>
+        </li>
+
+        <!-- Experiência 3 -->
+        <li class="experiencia-item">
+          <span class="exp-data">2023</span>
+          <div class="exp-conteudo">
+            <p class="exp-cargo">Assistente Administrativo</p>
+            <p class="exp-empresa">Nome da empresa</p>
+            <p class="exp-descricao">
+              Organização de documentos, suporte a equipes e uso de planilhas.
+              Primeiro contato com processos digitais no ambiente de trabalho.
+            </p>
+          </div>
+        </li>
+
+      </ul>
+      <!--
+        DICA: adicione mais <li> seguindo o mesmo padrão.
+        Pode listar cursos, projetos pessoais, freelas, empregos anteriores —
+        qualquer coisa relevante para a sua trajetória.
+      -->
+    </section>
+
+    <hr class="divisor" />
+
+    <!-- =====================================================
+         CONTATO
+    ===================================================== -->
+    <section class="contato">
+      <h2 class="secao-titulo">Contato</h2>
+
+      <ul class="contato-lista">
+
+        <li>
+          <span class="rotulo">Email</span>
+          <a href="mailto:seu@email.com">seu@email.com</a>
+        </li>
+
+        <li>
+          <span class="rotulo">Instagram</span>
+          <a href="https://instagram.com/seuperfil" target="_blank">@seuperfil</a>
+        </li>
+
+        <li>
+          <span class="rotulo">GitHub</span>
+          <a href="https://github.com/seuperfil" target="_blank">github.com/seuperfil</a>
+        </li>
+
+        <li>
+          <span class="rotulo">WhatsApp</span>
+          <a href="https://wa.me/5579999999999" target="_blank">(79) 99999-9999</a>
+          <!--
+            Para gerar o link certo do WhatsApp:
+            https://wa.me/55 + DDD + número (sem espaços ou traços)
+            Exemplo: https://wa.me/5579999999999
+          -->
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- =====================================================
+         RODAPÉ
+    ===================================================== -->
+    <footer>
+      <hr class="divisor" />
+      <p>Feito com HTML, CSS e JavaScript &nbsp;·&nbsp; Seu Nome &nbsp;·&nbsp; 2025</p>
+    </footer>
+
+  </div><!-- fim .container -->
+
+</body>
+</html>
