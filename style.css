@@ -1,6 +1,4 @@
-body {
-background-color: white; /* Ensure the iframe has a white background */
-}
+
 
                 /* =====================================================
    VARIÁVEIS GLOBAIS
@@ -41,6 +39,12 @@ background-color: white; /* Ensure the iframe has a white background */
   box-sizing: border-box;
 }
 
+/* =====================================================
+   HTML DA PÁGINA
+===================================================== */
+html {
+  cursor: url('imagens/cursorpy.png'), auto; /* Cursor personalizado */
+}
 /* =====================================================
    CORPO DA PÁGINA
 ===================================================== */
