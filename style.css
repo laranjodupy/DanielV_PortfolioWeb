@@ -4,6 +4,21 @@
    VARIÁVEIS GLOBAIS
    Tema Retrô Python - Dark Mode
 ===================================================== */
+
+/*Tasks: (organizado por prioridade e separado por opção de fazer, nível de vontade ou conhecimento, e quantidade de tempo ksakskaks)
+Colocar Header animado (algum comando aí que começa com m e da pra fazer no html sem choro)
+Deixar o site mais pixelado (bordas, fundo sendo um wallpaper ou coisa parecida)
+Deixar o site mais gamificado( barrinhas de vida, barrinhas de vida também pra denotar nível de conhecimento nas divs de cards-habilidade)
+
+Adicionar um efeito de "carregamento" ou "boot" no início, como se o site estivesse iniciando um sistema operacional
+Adicionar uma div quadrada na parte ao lado da seção inicial, como se estivesse "fora do body", com a minha foto, e botões embaixo para acessar outras seções do site (como um menu lateral)
+Colocar alguma animação de jogo da cobrinha de fundo ou algo parecido (relacionado ao python)
+Adicionar um canvas com partículas ou algo do tipo para dar um efeito mais dinâmico
+Adicionar um efeito de glitch ou scanline para dar um toque mais "tech"
+
+Adicionar um efeito de "terminal" onde o texto aparece como se estivesse sendo digitado
+
+*/
 :root {
   /* Fundo Escuro (Estilo Terminal) */
   --cor-fundo:        #1a1a1a;
