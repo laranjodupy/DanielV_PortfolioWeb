@@ -278,6 +278,7 @@ header {
   border-bottom: 1px dashed var(--cor-borda);
   padding-bottom: 2px;
   transition: all 0.2s ease;
+  margin-left: 20px;
 }
 
 .contato-lista a:hover {
@@ -285,7 +286,22 @@ header {
   border-bottom-color: var(--cor-destaque);
   padding-left: 4px; /* Efeito de deslocamento no hover */
 }
+/* =====================================================
+   SEÇÃO: ANIMAÇÕES
+===================================================== */
 
+.fade-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  
+}
 /* =====================================================
    RODAPÉ
 ===================================================== */
@@ -303,7 +319,6 @@ footer {
   .habilidades-grid {
     grid-template-columns: 1fr; /* 1 coluna no mobile */
   }
-  
   .experiencia-item {
     grid-template-columns: 1fr;
   }
@@ -318,4 +333,10 @@ footer {
     text-align: left;
   }
 }
-
+@media(prefers-reduced-motion: reduce) {
+  .fade-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+};

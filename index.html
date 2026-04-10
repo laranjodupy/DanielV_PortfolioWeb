@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
   <!-- O Canvas para o background ficará aqui (será implementado depois) -->
@@ -33,7 +33,7 @@
 
     <hr class="divisor">
 
-    <section class="sobre">
+    <section class="sobre fade-section">
       <h2 class="secao-titulo">&lt;Sobre_Mim&gt;</h2>
       <p>
         Olá, sou Daniel Viana Lima, amante da tecnologia e estudante de desenvolvimento web. Estou sempre em busca de aprender novas habilidades e aprimorar meus conhecimentos na área de TI, principalmente na parte de IA, Dados, e LLM. Além de estudar, gosto de aprender/ver sobre ciências naturais - principalmente no ramo da física e suas teorias -, jogar xadrez, e ver soluções matemáticas para N problemas.
@@ -42,7 +42,7 @@
 
     <hr class="divisor">
 
-    <section class="habilidades">
+    <section class="habilidades fade-section">
       <h2 class="secao-titulo">&lt;Habilidades&gt;</h2>
       <div class="habilidades-grid">
         
@@ -75,7 +75,7 @@
 
     <hr class="divisor">
 
-    <section class="experiencias">
+    <section class="experiencias fade-section">
       <h2 class="secao-titulo">&lt;Experiências&gt;</h2>
       <ul class="experiencias-lista">
         <li class="experiencia-item">
@@ -109,30 +109,32 @@
 
     <hr class="divisor">
 
-    <section class="contato">
+    <section class="contato fade-section">
       <h2 class="secao-titulo">&lt;Contato&gt;</h2>
       <ul class="contato-lista">
         <li>
           <span class="rotulo">Email</span>
-          <a href="mailto:seu@email.com">[seu@email.com]</a>
+          <a href="mailto:vianalimadaniel@gmail.com">[vianalimadaniel@gmail.com]</a>
         </li>
         <li>
           <span class="rotulo">GitHub</span>
-          <a href="https://github.com/seuperfil" target="_blank">[github.com/seuperfil]</a>
+          <a href="https://github.com/laranjodupy" target="_blank">[github.com/laranjodupy]</a>
         </li>
         <li>
           <span class="rotulo">Instagram</span>
-          <a href="https://instagram.com/seuperfil" target="_blank">[@seuperfil]</a>
+          <a href="https://instagram.com/euu.danieeu" target="_blank" id="texto-rotulo">[@euu.danieeu]</a>
         </li>
       </ul>
     </section>
 
     <hr class="divisor">
 
-    <footer>
+    <footer class="fade-section">
       <p>Feito com <span style="color: var(--python-azul)">HTML</span>, <span style="color: var(--cor-texto)">CSS</span> e <span style="color: var(--python-amarelo)">JS</span> · Daniel Viana Lima · 2025</p>
     </footer>
 
   </div>
+  <script src='script.js' defer></script>
+  <!--Aprendi que esse defer ai na tag script garante que o arquivo js só vai ser carregado após o DOM, mas o DOMContentLoaded dentro do js já é uma tomada de segurança extra-->
 </body>
 </html>
