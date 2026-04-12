@@ -6,17 +6,19 @@
 ===================================================== */
 
 /*Tasks: (organizado por prioridade e separado por opção de fazer, nível de vontade ou conhecimento, e quantidade de tempo ksakskaks)
-Colocar Header animado (algum comando aí que começa com m e da pra fazer no html sem choro)
-Deixar o site mais pixelado (bordas, fundo sendo um wallpaper ou coisa parecida)
-Deixar o site mais gamificado( barrinhas de vida, barrinhas de vida também pra denotar nível de conhecimento nas divs de cards-habilidade)
-
+----------------------PRINCIPAIS-----------------------------------------
+Colocar Header animado (algum comando aí que começa com m e da pra fazer no html sem choro) # FEITO!
+Deixar o site mais pixelado (bordas, fundo sendo um wallpaper ou coisa parecida)  
+Deixar o site mais gamificado( barrinhas de conheicimento, barrinhas de conhecimento também pra denotar nível de conhecimento nas divs de cards-habilidade)
 Adicionar um efeito de "carregamento" ou "boot" no início, como se o site estivesse iniciando um sistema operacional
 Adicionar uma div quadrada na parte ao lado da seção inicial, como se estivesse "fora do body", com a minha foto, e botões embaixo para acessar outras seções do site (como um menu lateral)
 Colocar alguma animação de jogo da cobrinha de fundo ou algo parecido (relacionado ao python)
+-------------------------ACHOQUEDÁ---------------------------------
 Adicionar um canvas com partículas ou algo do tipo para dar um efeito mais dinâmico
 Adicionar um efeito de glitch ou scanline para dar um toque mais "tech"
-
 Adicionar um efeito de "terminal" onde o texto aparece como se estivesse sendo digitado
+------------------------------ Organização ------------------------
+Colocar as cores avulsas pelo código dentro da :root e evitar encher de cores.
 
 */
 :root {
@@ -102,7 +104,13 @@ header {
   color: var(--python-azul);
   letter-spacing: 0.1em;
 }
-
+.marquee {
+  font-family: var(--fonte-titulo);
+  font-size: 0.5rem;
+  color: var(--cor-destaque);
+  margin-top: 0.9rem;
+  background-color: grey;
+}
 .nome {
   font-family: var(--fonte-titulo);
   font-size: clamp(2rem, 5vw, 3rem);
@@ -195,6 +203,47 @@ header {
   color: var(--cor-texto-sec);
   line-height: 1.4;
 }
+/* =====================================================
+   SEÇÃO: BARRINHA DE CONHECIMENTO (BENEVIDES, QUE IDEIA DE CACHORRO VIU, VOU FAZER SO PQ ACHEI LEGAL, E !NAO, É PORQUE VOCÊ É UMA INSPIRAÇÃO BLZ!?) 
+===================================================== */
+.container-barrinha{
+  width: 100%; /*Entendi que quando eu faço isso, ele vai até 100% de width de onde ele ta dentro, e nao da pagina toda, massa.*/
+  max-width: 320px; /*definir o maximo aq ne pra n virar bagunça*/
+  margin: 0 auto; /*centralizando para os casos do tamanho do card for maior que o max-width*/
+}
+
+.barrinha-conhecimento{
+  --conhecimento: 7; /*Declaração da variável (é interessante porque ela pode ser sobrescrita se eu definir ela inline la no html, top)*/
+  --cor-cheio: var(--python-amarelo);
+  --cor-vazio: #2a2a2a;
+  --cor-borda: #555;
+  /*aí só definindo algumas coreszinhas ne*/
+
+  /*Grid interno: 10 colunas iguais:*/
+  display: grid;
+  grid-template-columns: repeat(10,1fr); /*definindo o tamanho das colunas e quantas vão ser (só não entendo muito porque tenho que definir a quantidade vey)*/
+  gap: 2px; /* espaço entre pixels*/
+  padding: 3px; /*espessura interna da moldura*/
+
+  /*dimensionando aq abaixo*/
+  width: 100%;
+  aspect-ratio: 10 / 1; /*esse aqui é massa, ele mantém a proporção de barra longa, sendo o 10 o comprimento, e o 1 a largura (ambos em pixels) */
+  margin-top: 10px; /*só pra n ficar muito colado no texto tlg*/
+
+  /*não peguei muito bem o box-shadow mas aqui eu faço a moldura pixelada*/
+  border: 2px solid var(--cor-borda);
+  box-shadow: 0 0 0 1px #000, inset 0 0 0 1px #000;
+  background-color: var(--cor-vazio);
+}
+.pixel{
+  width:100%;
+  height: 100%;
+  background-color: var(--python-amarelo);
+  transition: background-color 0.15s step-end;
+   /*fazendo uma transição estilo retrô (achei engraçado que pode deixar sem o zero na frente do tempo kkkk, o dev salvando 0.100ms de tempo com essa funcionalidade super importante)*/
+
+}
+
 
 /* =====================================================
    SEÇÃO: EXPERIÊNCIAS
@@ -347,6 +396,7 @@ footer {
     width: auto; /* Rótulos ajustáveis no mobile */
     text-align: left;
   }
+
 }
 @media(prefers-reduced-motion: reduce) {
   .fade-section {
