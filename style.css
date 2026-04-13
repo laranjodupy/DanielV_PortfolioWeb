@@ -154,6 +154,31 @@ header {
   max-width: 65ch; /* Otimizado para leitura */
 }
 
+.borda-animada {
+  padding: 12px;
+  height: fit-content;
+  width: fit-content;
+  border: 1px solid #0000;
+  border-radius: 12px;
+  background: linear-gradient(#1a1a1a, #1a1a1a) padding-box, linear-gradient(
+        var(--angle),
+        #070707,
+        #FFD43B
+      ) border-box;
+  animation: 8s rotate linear infinite;
+}
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+
+@property --angle{
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
 /* =====================================================
    SEÇÃO: HABILIDADES
 ===================================================== */
