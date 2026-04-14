@@ -16,15 +16,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     section_animados.forEach(el => elementos_na_visao.observe(el)); //registra cada elemento para ser observado tlg
 });
-
-// Novo: anima a barrinha
-  const barrinha = document.querySelector('.barrinha-conhecimento');
-  if (barrinha) {
-    const targetConhecimento = parseInt(getComputedStyle(barrinha).getPropertyValue('--conhecimento')) || 1;
-    let current = 0;
-    const interval = setInterval(() => {
-      current++;
-      barrinha.style.setProperty('--conhecimento', current);
-      if (current >= targetConhecimento) clearInterval(interval);
-    }, 150); // Ajuste o tempo para controlar a velocidade
-  }
