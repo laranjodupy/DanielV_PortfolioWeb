@@ -10,12 +10,12 @@
 
 Colocar Header animado (algum comando aí que começa com m e da pra fazer no html sem choro) # FEITO!
 Deixar o site mais pixelado (bordas, fundo sendo um wallpaper ou coisa parecida)  #FEITO!
-Colocar uma seção de SOFTSKILLS que nem a do professor kkaksaks
+Colocar uma seção de SOFTSKILLS que nem a do professor kkaksaks #feito mas incompleto
 Deixar o site mais gamificado( barrinhas de conheicimento, barrinhas de conhecimento também pra denotar nível de conhecimento nas divs de cards-habilidade) #FEITO!
-Adicionar um efeito de "carregamento" ou "boot" no início, como se o site estivesse iniciando um sistema operacional
+Adicionar um efeito de "carregamento" ou "boot" no início, como se o site estivesse iniciando um sistema operacional 
 Colocar alguma animação de jogo da cobrinha de fundo ou algo parecido (relacionado ao python)
 -------------------------ACHOQUEDÁ---------------------------------
-Adicionar um canvas com partículas ou algo do tipo para dar um efeito mais dinâmico
+Adicionar um canvas com partículas ou algo do tipo para dar um efeito mais dinâmico #FEITO!
 Adicionar um efeito de glitch ou scanline para dar um toque mais "tech"
 Adicionar um efeito de "terminal" onde o texto aparece como se estivesse sendo digitado
 ------------------------------ Organização ------------------------
@@ -61,8 +61,15 @@ Colocar as cores avulsas pelo código dentro da :root e evitar encher de cores.
    HTML DA PÁGINA
 ===================================================== */
 html {
-  cursor: url('imagens/cursorpy.png'), auto; /* Cursor personalizado */
+  cursor: url('imagens/cursorpy.png'), auto;
+  
 }
+
+/* Seus hovers continuam funcionando normalmente */
+a:hover, button:hover, .card-habilidade:hover {
+  cursor: url('imagens/cursorpy.png'), auto; /* ou text, grab, etc. */
+}
+
 /* =====================================================
    CORPO DA PÁGINA
 ===================================================== */
@@ -73,6 +80,17 @@ body {
   font-size: 15px; /* Um pouco menor para fontes monoespaçadas */
   line-height: 1.7;
   overflow-x: hidden; /* Evita scroll horizontal acidental */
+}
+
+#bg-canvas {
+  position: fixed;        /* 🔑 Relativo à viewport, não ao documento */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;            /* Fica atrás do conteúdo, mas acima do fundo do body */
+  pointer-events: none;   /* Permite clicar/selecionar texto por cima */
+  display: block;         /* Remove o espaçamento inline padrão de <canvas> */
 }
 
 /* Container central */
@@ -269,8 +287,15 @@ header {
    /*fazendo uma transição estilo retrô (achei engraçado que pode deixar sem o zero na frente do tempo kkkk, o dev salvando 0.100ms de tempo com essa funcionalidade super importante)*/
 
 }
-
-
+/* =====================================================
+   SEÇÃO: SOFTSKILLS
+===================================================== */
+.sskills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-left: 10px;
+}
 /* =====================================================
    SEÇÃO: EXPERIÊNCIAS
 ===================================================== */

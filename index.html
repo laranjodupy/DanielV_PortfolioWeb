@@ -15,9 +15,10 @@
   <link rel="stylesheet" href="style.css">
   
 </head>
+
 <body>
-  <!-- O Canvas para o background ficará aqui (será implementado depois) -->
-  <!-- <canvas id="bg-canvas"></canvas> -->
+  <!-- O Canvas para o background ficará no body para ficar no fundo dele-->
+  <canvas id="bg-canvas"></canvas>
 
   <div class="container">
     
@@ -52,7 +53,7 @@
           <!-- 1. tentativa de fazer a bosta da barrinha -->
           <div class="container-barrinha style='max-width=100%'">
           <!-- 2. Barra principal. E a variavel conhecimento vai definir "quantos bloquinhos de conhecimento possuo" -->
-            <div class="barrinha-conhecimento" style="--conhecimento: 1;">
+            <div class="barrinha-conhecimento" style="--conhecimento:1;">
               <!-- 3. segmentos fixos (representam % da vida) -->
               <span class="pixel"></span>
               <span class="pixel"></span>
@@ -121,8 +122,20 @@
     <!-- SoftSkills (pegando de inspiração o portfolio do professor), vou trabalhar com cards também-->
      <section class="softskills">
 
-      <div>
-        
+      <div class="sskills">
+        <h2 class="secao-titulo">&lt;Soft-Skills&gt;</h2>
+        <ul class="softskills-lista">
+          <li class="softskill-item">Comunicação Eficaz</li>
+          <li class="softskill-item">Trabalho em Equipe</li>
+          <li class="softskill-item">Resolução de Problemas</li>
+          <li class="softskill-item">Adaptabilidade</li>
+          <li class="softskill-item">Pensamento Crítico</li>
+          <li class="softskill-item">Beleza</li>
+          <li class="softskill-item">Humildade</li>
+          <li class="softskill-item">Aura + Ego</li>
+          <li class="softskill-item">Gosto de coelhos🐇</li>
+        </ul>
+
       </div>
      </section>
     <hr class="divisor">
