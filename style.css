@@ -365,6 +365,41 @@ header {
   gap: 0.2rem;
   margin-left: 10px;
 }
+
+/* [MOD] Soft-skills virou grade de caixas com hover estilo retro */
+.softskills-lista {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.softskill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--cor-fundo-suave);
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  padding: 0.5rem 0.9rem;
+  font-family: var(--fonte-corpo);
+  font-size: 0.82rem;
+  color: var(--cor-texto-sec);
+  cursor: default;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.softskill-item:hover {
+  border-color: var(--python-amarelo);
+  color: var(--cor-texto);
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0px var(--python-amarelo);
+}
+
+.sskill-icone {
+  font-size: 1rem;
+  line-height: 1;
+}
 /* =====================================================
    SEÇÃO: EXPERIÊNCIAS
 ===================================================== */
