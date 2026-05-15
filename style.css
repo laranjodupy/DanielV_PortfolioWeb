@@ -1,5 +1,4 @@
 
-
                 /* =====================================================
    VARIÁVEIS GLOBAIS
    Tema Retrô Python - Dark Mode
@@ -46,6 +45,14 @@ Colocar as cores avulsas pelo código dentro da :root e evitar encher de cores.
   /* Layout */
   --largura-max:      800px; /* Aumentei um pouco para melhor leitura */
   --espacamento:      2.5rem;
+
+  /* [MOD] Cores das tecnologias novas e existentes — centralizadas na :root */
+  --cor-html:         #e44d26;
+  --cor-js:           #f7df1e;
+  --cor-git:          #f05032;
+  --cor-react:        #61dafb;
+  --cor-supabase:     #3ecf8e;
+  --cor-postgres:     #336791;
 }
 
 /* =====================================================
@@ -222,10 +229,66 @@ header {
   box-shadow: 4px 4px 0px var(--cor-borda); /* Sombra sólida estilo 8-bit */
 }
 
-/* Highlight para o card Python */
+/* Highlight para o card Python — border-color já existia, só corrigindo para funcionar com o id */
 #python_card {
   border-color: var(--python-amarelo);
   background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(48, 105, 152, 0.1) 100%);
+}
+#python_card:hover {
+  border-color: var(--python-amarelo);
+  box-shadow: 4px 4px 0px var(--python-amarelo);
+}
+
+/* [MOD] Bordas coloridas por tecnologia — todos os cards existentes e novos */
+#card-html {
+  border-color: var(--cor-html);
+}
+#card-html:hover {
+  border-color: var(--cor-html);
+  box-shadow: 4px 4px 0px var(--cor-html);
+}
+
+#card-js {
+  border-color: var(--cor-js);
+}
+#card-js:hover {
+  border-color: var(--cor-js);
+  box-shadow: 4px 4px 0px var(--cor-js);
+}
+
+#card-git {
+  border-color: var(--cor-git);
+}
+#card-git:hover {
+  border-color: var(--cor-git);
+  box-shadow: 4px 4px 0px var(--cor-git);
+}
+
+#card-react {
+  border-color: var(--cor-react);
+  background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(97, 218, 251, 0.05) 100%);
+}
+#card-react:hover {
+  border-color: var(--cor-react);
+  box-shadow: 4px 4px 0px var(--cor-react);
+}
+
+#card-supabase {
+  border-color: var(--cor-supabase);
+  background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(62, 207, 142, 0.05) 100%);
+}
+#card-supabase:hover {
+  border-color: var(--cor-supabase);
+  box-shadow: 4px 4px 0px var(--cor-supabase);
+}
+
+#card-postgres {
+  border-color: var(--cor-postgres);
+  background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(51, 103, 145, 0.08) 100%);
+}
+#card-postgres:hover {
+  border-color: var(--cor-postgres);
+  box-shadow: 4px 4px 0px var(--cor-postgres);
 }
 
 .card-habilidade .icone {
@@ -287,6 +350,12 @@ header {
    /*fazendo uma transição estilo retrô (achei engraçado que pode deixar sem o zero na frente do tempo kkkk, o dev salvando 0.100ms de tempo com essa funcionalidade super importante)*/
 
 }
+
+/* [MOD] Cor dos pixels das barrinhas dos cards novos, combinando com a borda de cada um */
+.barrinha-react .pixel   { background-color: var(--cor-react); }
+.barrinha-supabase .pixel { background-color: var(--cor-supabase); }
+.barrinha-postgres .pixel { background-color: var(--cor-postgres); }
+
 /* =====================================================
    SEÇÃO: SOFTSKILLS
 ===================================================== */

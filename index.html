@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <body>
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -46,15 +43,13 @@
       <h2 class="secao-titulo">&lt;Hard-Skills&gt;</h2>
       <div class="habilidades-grid">
         
-        <div class="card-habilidade" >
+        <!-- [MOD] id adicionado para ativar o estilo #python_card já existente no CSS -->
+        <div class="card-habilidade" id="python_card">
           <span class="icone">🐍</span>
           <h3>Python</h3>
           <p>Tratamento de Dados, ChatBots e Computer Vision.</p>
-          <!-- 1. tentativa de fazer a bosta da barrinha -->
           <div class="container-barrinha style='max-width=100%'">
-          <!-- 2. Barra principal. E a variavel conhecimento vai definir "quantos bloquinhos de conhecimento possuo" -->
             <div class="barrinha-conhecimento" style="--conhecimento:1;">
-              <!-- 3. segmentos fixos (representam % da vida) -->
               <span class="pixel"></span>
               <span class="pixel"></span>
               <span class="pixel"></span>
@@ -66,12 +61,12 @@
           </div>
         </div>
 
-        <div class="card-habilidade borda-pixelada">
+        <!-- [MOD] id adicionado para borda colorida -->
+        <div class="card-habilidade" id="card-html">
           <span class="icone">🌐</span>
           <h3>HTML + CSS</h3>
           <p>Estrutura e estilo de páginas web, Flexbox e Grid.</p>
           <div class="container-barrinha style='max-width=100%'">
-          <!-- Já expliquei esse bagui la em -->
             <div class="barrinha-conhecimento" style="--conhecimento: 1;">
               <span class="pixel"></span>
               <span class="pixel"></span>
@@ -82,12 +77,12 @@
           </div>
         </div>
 
-        <div class="card-habilidade borda-pixelada">
+        <!-- [MOD] id adicionado para borda colorida -->
+        <div class="card-habilidade" id="card-js">
           <span class="icone">⚙️</span>
           <h3>JavaScript</h3>
           <p>Lógica de programação, manipulação DOM.</p>
           <div class="container-barrinha style='max-width=100%'">
-          <!-- Já expliquei esse bagui la em cima -->
             <div class="barrinha-conhecimento" style="--conhecimento: 1;">
               <span class="pixel"></span>
               <span class="pixel"></span>
@@ -97,17 +92,63 @@
           </div>
         </div>
 
-        <div class="card-habilidade borda-pixelada">
+        <!-- [MOD] id adicionado para borda colorida -->
+        <div class="card-habilidade" id="card-git">
           <span class="icone">🔧</span>
           <h3>Git + GitHub</h3>
           <p>Versionamento, repositórios e colaboração.</p>
           <div class="container-barrinha style='max-width=100%'">
-          <!-- Já expliquei esse bagui la em cima -->
             <div class="barrinha-conhecimento" style="--conhecimento: 1;">
               <span class="pixel"></span>
               <span class="pixel"></span>
               <span class="pixel"></span>
               <span class="pixel"></span>
+              <span class="pixel"></span>
+              <span class="pixel"></span>
+              <span class="pixel"></span>
+              <span class="pixel"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- [MOD] Card novo: React.js -->
+        <div class="card-habilidade" id="card-react">
+          <span class="icone">⚛️</span>
+          <h3>React.js</h3>
+          <p>Componentes, hooks, interfaces reativas, e APIs com Express.</p>
+          <div class="container-barrinha">
+            <div class="barrinha-conhecimento barrinha-react" style="--conhecimento: 1;">
+              <span class="pixel"></span>
+              <span class="pixel"></span>
+              <span class="pixel"></span>
+              <span class="pixel"></span>
+              <span class="pixel"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- [MOD] Card novo: Supabase -->
+        <div class="card-habilidade" id="card-supabase">
+          <span class="icone">🗄️</span>
+          <h3>Supabase</h3>
+          <p>Backend as a service, auth e banco em tempo real.</p>
+          <div class="container-barrinha">
+            <div class="barrinha-conhecimento barrinha-supabase" style="--conhecimento: 1;">
+              <span class="pixel"></span>
+              <span class="pixel"></span>
+              <span class="pixel"></span>
+              <span class="pixel"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- [MOD] Card novo: PostgreSQL -->
+        <div class="card-habilidade" id="card-postgres">
+          <span class="icone">🐘</span>
+          <h3>PostgreSQL</h3>
+          <p>Banco relacional, queries SQL e modelagem de dados.</p>
+          <div class="container-barrinha">
+            <div class="barrinha-conhecimento barrinha-postgres" style="--conhecimento: 1;">
               <span class="pixel"></span>
               <span class="pixel"></span>
               <span class="pixel"></span>
@@ -190,7 +231,7 @@
 
     <hr class="divisor">
     <marquee direction="right" behavior="scroll" scrollamount="10" class="marquee">
-    print("Hello World!")</marquee> <!-- Aprendendo a colocar a faixa que passa pra os lados kaskaks-->
+    print("Hello World!")</marquee> <!-- Aprendendo a colocar a faixa que passa pra os lados ksakaks-->
     </header>
     <footer class="fade-section">
       <p>Feito com <span style="color: var(--python-azul)">HTML</span>, <span style="color: var(--cor-texto)">CSS</span> e <span style="color: var(--python-amarelo)">JS</span> · Daniel Viana Lima · 2025</p>
