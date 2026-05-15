@@ -454,6 +454,95 @@ header {
 .nivel-basico       { background-color: rgba(156, 163, 175, 0.15); color: var(--cor-texto-sec); border: 1px solid var(--cor-texto-sec); }
 
 /* =====================================================
+   SEÇÃO: FORMAÇÕES [MOD]
+===================================================== */
+.formacoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.card-formacao {
+  background-color: var(--cor-fundo-suave);
+  border: 1px solid var(--cor-borda);
+  border-left: 3px solid var(--python-azul); /* acento lateral azul Python */
+  border-radius: 4px;
+  padding: 1.25rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-formacao:hover {
+  transform: translateY(-3px);
+  border-left-color: var(--python-amarelo);
+  box-shadow: 4px 4px 0px var(--cor-borda);
+}
+
+.formacao-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.formacao-icone {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* Badges de status — mesma lógica dos badges de idioma */
+.formacao-status {
+  font-size: 0.7rem;
+  font-family: var(--fonte-corpo);
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+.status-andamento {
+  background-color: rgba(255, 212, 59, 0.15);
+  color: var(--python-amarelo);
+  border: 1px solid var(--python-amarelo);
+}
+
+.status-concluido {
+  background-color: rgba(48, 105, 152, 0.25);
+  color: #7ec8e3;
+  border: 1px solid #306998;
+}
+
+.formacao-curso {
+  font-family: var(--fonte-titulo);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--cor-texto);
+  line-height: 1.4;
+}
+
+.formacao-instituicao {
+  font-size: 0.8rem;
+  color: var(--python-azul);
+  font-weight: 700;
+  font-family: var(--fonte-titulo);
+}
+
+.formacao-periodo {
+  font-size: 0.75rem;
+  color: var(--cor-texto-sec);
+  font-style: italic;
+}
+
+.formacao-desc {
+  font-size: 0.78rem;
+  color: var(--cor-texto-sec);
+  line-height: 1.5;
+  margin-top: 0.2rem;
+}
+
+/* =====================================================
    SEÇÃO: SOFTSKILLS
 ===================================================== */
 .sskills {
@@ -634,6 +723,10 @@ footer {
 @media (max-width: 600px) {
   .habilidades-grid {
     grid-template-columns: 1fr; /* 1 coluna no mobile */
+  }
+  /* [MOD] formações também vira 1 coluna no mobile */
+  .formacoes-grid {
+    grid-template-columns: 1fr;
   }
   .experiencia-item {
     grid-template-columns: 1fr;
