@@ -53,6 +53,10 @@ Colocar as cores avulsas pelo código dentro da :root e evitar encher de cores.
   --cor-react:        #61dafb;
   --cor-supabase:     #3ecf8e;
   --cor-postgres:     #336791;
+  /* [MOD] Cores dos cards novos */
+  --cor-c:            #a8b9cc;
+  --cor-cpp:          #004482;
+  --cor-nocode:       #8b5cf6;
 }
 
 /* =====================================================
@@ -291,6 +295,34 @@ header {
   box-shadow: 4px 4px 0px var(--cor-postgres);
 }
 
+/* [MOD] Bordas coloridas — C, C++ e No-code */
+#card-c {
+  border-color: var(--cor-c);
+  background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(168, 185, 204, 0.06) 100%);
+}
+#card-c:hover {
+  border-color: var(--cor-c);
+  box-shadow: 4px 4px 0px var(--cor-c);
+}
+
+#card-cpp {
+  border-color: var(--cor-cpp);
+  background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(0, 68, 130, 0.08) 100%);
+}
+#card-cpp:hover {
+  border-color: var(--cor-cpp);
+  box-shadow: 4px 4px 0px var(--cor-cpp);
+}
+
+#card-nocode {
+  border-color: var(--cor-nocode);
+  background: linear-gradient(180deg, var(--cor-fundo-suave) 0%, rgba(139, 92, 246, 0.07) 100%);
+}
+#card-nocode:hover {
+  border-color: var(--cor-nocode);
+  box-shadow: 4px 4px 0px var(--cor-nocode);
+}
+
 .card-habilidade .icone {
   font-size: 1.5rem;
   display: block;
@@ -352,9 +384,74 @@ header {
 }
 
 /* [MOD] Cor dos pixels das barrinhas dos cards novos, combinando com a borda de cada um */
-.barrinha-react .pixel   { background-color: var(--cor-react); }
+.barrinha-react .pixel    { background-color: var(--cor-react); }
 .barrinha-supabase .pixel { background-color: var(--cor-supabase); }
 .barrinha-postgres .pixel { background-color: var(--cor-postgres); }
+/* [MOD] Barrinhas dos cards C, C++ e No-code */
+.barrinha-c .pixel        { background-color: var(--cor-c); }
+.barrinha-cpp .pixel      { background-color: var(--cor-cpp); }
+.barrinha-nocode .pixel   { background-color: var(--cor-nocode); }
+
+/* =====================================================
+   SEÇÃO: IDIOMAS [MOD]
+===================================================== */
+.idiomas-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.idioma-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background-color: var(--cor-fundo-suave);
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  padding: 0.65rem 1rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 360px;
+}
+
+.idioma-item:hover {
+  transform: translateX(4px);
+  border-color: var(--python-azul);
+  box-shadow: 3px 3px 0px var(--python-azul);
+}
+
+.idioma-bandeira {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.idioma-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.idioma-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 0.8rem;
+  color: var(--cor-texto);
+}
+
+.idioma-nivel {
+  font-size: 0.72rem;
+  font-family: var(--fonte-corpo);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* Cores de nível — semáforo sutil */
+.nivel-nativo       { background-color: rgba(48, 105, 152, 0.25); color: #7ec8e3; border: 1px solid #306998; }
+.nivel-intermediario{ background-color: rgba(255, 212, 59, 0.15); color: var(--python-amarelo); border: 1px solid var(--python-amarelo); }
+.nivel-basico       { background-color: rgba(156, 163, 175, 0.15); color: var(--cor-texto-sec); border: 1px solid var(--cor-texto-sec); }
 
 /* =====================================================
    SEÇÃO: SOFTSKILLS
