@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.15, //ele controla o disparo à partir do nível de visibilidade do elemento (nesse caso, a porcentagem de 15% dele)
-        rootMargin: '0px 0px -40px 0px' //nem sabia disso, mas essa disgraça ai "antecipa" o disparo (serve para elementos baixos)
+        threshold: 0.1, //ele controla o disparo à partir do nível de visibilidade do elemento (nesse caso, a porcentagem de 10% dele)
+        rootMargin: '0px 0px -20px 0px' //nem sabia disso, mas essa disgraça ai "antecipa" o disparo (serve para elementos baixos)
     });
     section_animados.forEach(el => elementos_na_visao.observe(el)); //registra cada elemento para ser observado tlg
 });
