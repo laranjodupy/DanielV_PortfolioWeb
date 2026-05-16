@@ -72,13 +72,13 @@ Colocar as cores avulsas pelo código dentro da :root e evitar encher de cores.
    HTML DA PÁGINA
 ===================================================== */
 html {
-  cursor: url('imagens/cursorpy.png'), auto;
+  cursor: url('componentes/cursorpy.png'), auto;
   
 }
 
 /* Seus hovers continuam funcionando normalmente */
 a:hover, button:hover, .card-habilidade:hover {
-  cursor: url('imagens/cursorpy.png'), auto; /* ou text, grab, etc. */
+  cursor: url('componentes/cursorpy.png'), auto; /* ou text, grab, etc. */
 }
 
 /* =====================================================
@@ -707,6 +707,42 @@ header {
   transform: translateY(0);
   
 }
+/* =====================================================
+   SEÇÃO: CURRÍCULO [MOD]
+===================================================== */
+.curriculo-desc {
+  font-size: 0.9rem;
+  color: var(--cor-texto-sec);
+  margin-bottom: 1.25rem;
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--cor-fundo-suave);
+  color: var(--python-amarelo);
+  border: 2px solid var(--python-amarelo);
+  border-radius: 4px;
+  padding: 0.6rem 1.4rem;
+  font-family: var(--fonte-titulo);
+  font-size: 0.8rem;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn-download:hover {
+  background-color: var(--python-amarelo);
+  color: var(--cor-fundo);
+  box-shadow: 4px 4px 0px rgba(255, 212, 59, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-icone {
+  font-style: normal;
+}
+
 /* =====================================================
    RODAPÉ
 ===================================================== */
